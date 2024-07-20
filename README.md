@@ -49,12 +49,12 @@ Our method is composed of the following three building blocks :
 - **Interaction Graph Module** : It captures agent interactions by processing their feature vectors. It includes a refinement of individual node features after their interactions and an analysis of combined features of agent pairs to learn about their direct interactions. K-means clustering is then used to categorize these interactions into predefined groups based on feature similarity. 
 - **Feature Learning Module** : It is used to process agent features dynamically, to update their states based on agent interactions, and to selectively focus on relevant data through a self attention mechanism. 
 
-**EquiPredict Module** : The final model leverages various neural network techniques to interpret and predict complex motion patterns based on relational data. It simplifies features like speed, direction, and position into a lower-dimensional space for efficient processing. Interactions are classified into categories using message passing and aggregation techniques, then processed through Feature Learning layers to update each node's representation based on its neighbors. Recurrent processing also allows the model to consider temporal evolution of interactions and states. Prediction are then computed using multiple prediction heads. Each head processes the refined node features to produce outputs related to the coordinates of the agents. Then, having applied DCT before, coordinates are transformed back from the frequency domain to the spatial domain using the inverse DCT.
+**EquiPredict Module** : The final model leverages various neural network techniques to interpret and predict complex motion patterns based on relational data.It simplifies features like speed, direction, and position into a lower-dimensional space for efficient processing. Interactions are classified into categories using message passing and aggregation techniques, then processed through Feature Learning layers to update each node's representation based on its neighbors. Recurrent processing also allows the model to consider temporal evolution of interactions and states. Multiple prediction heads generate outputs for agent coordinates, and having aplplied DCT before, coordinates are transformed back from the frequency domain to the spatial domain using the inverse DCT.
 
 
-Below there's a graphical representation of network implemented in the original paper https://arxiv.org/pdf/2303.10876.
+Below there's a graphical representation of the network implemented in the original paper https://arxiv.org/pdf/2303.10876.
 
-In our project, we try to re-implement it and we propose modifications to the architecture, running experiments to understand how to achieve equivariance and invariance in our multiprediction task . 
+In our project, we try to re-implement it and we propose modifications to the architecture, running experiments to understand how to achieve equivariance and invariance in our multiprediction task. 
 
 <p align="center">
   <img src="results/architecture.png">
@@ -68,7 +68,7 @@ To evaluate the performance of our model, we use :
 
 Below we report some of the results we have achieved: 
 
-**Results for Modified Architecture with Feature Learning Layer without Reasoning Module, but added Recurrency, GCL layer and MHA in EquiPredict**  
+**Results for Modified Architecture with Feature Learning Layer without Reasoning Module, but added Recurrency, Graph Convolution Layer and MHA in EquiPredict**  
 
 - *AgentPreprocessing without Invalids Data Results on ETH* : 
 
@@ -94,6 +94,21 @@ Below we report some of the results we have achieved:
     <p><strong>ETH ADE 100 Epochs</strong></p>
   </div>
 </div>
+
+** LET'S LOOK AT IT **
+<table>
+  <tr>
+    <td style="text-align: center;">
+      <img src="results/ours_invalid_eth_FDE_100.png" width="300" height="auto" alt="ours_eth_FDE_100">
+      <p><strong>ETH FDE 100 Epochs</strong></p>
+    </td>
+    <td style="text-align: center;">
+      <img src="results/ours_invalid_eth_ADE_100.png" width="300" height="auto" alt="ours_eth_ADE_100">
+      <p><strong>ETH ADE 100 Epochs</strong></p>
+    </td>
+  </tr>
+</table>
+
 
 From the above plots, we can see that, despite the data loss, processing only valids results achieves a slightly better performance. For this reason, we decided to perform further tests only considering valid data.  
 **Following results assume AgentPreProcessing without Invalids is used** 
