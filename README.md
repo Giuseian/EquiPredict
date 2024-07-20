@@ -1,14 +1,12 @@
 # EquiPredict: Robust Interaction Modeling for Multi-Agent Motion Forecasting
 
 
-
 ## Project Description 
 The ability to understand and predict the motion of multiple agents in dynamic environments is crucial for a range of applications, from autonomous vehicles navigating urban streets to sophisticated pedestrian traffic management systems. Despite considerable advancements, existing motion prediction methods often struggle to capture the intricate interdependencies and the variability these agents exhibit in real-world settings.  
 In our project, we propose several experiments to explore the importance of equivariance and invariance in our multiprediction task.  
 <p align="center">
   <img src="results/pedestrian_eq.png" style="width: 250px; height: auto;">
 </p>
-
 
 
 ## Repository Content 
@@ -51,7 +49,8 @@ Our method is composed of the following three building blocks :
 - **Interaction Graph Module** : It captures agent interactions by processing their feature vectors. It includes a refinement of individual node features after their interactions and an analysis of combined features of agent pairs to learn about their direct interactions. K-means clustering is then used to categorize these interactions into predefined groups based on feature similarity. 
 - **Feature Learning Module** : It is used to process agent features dynamically, to update their states based on agent interactions, and to selectively focus on relevant data through attention mechanisms. 
 
-**EquiPredict Module** : The final model leverages various neural network techniques to interpret and predict complex motion patterns based on relational data. It simplifies features like speed, direction, and position into a lower-dimensional space for efficient interpretation. Interactions between agents are categorized using message passing and graph convolutional layers, while recurrent layers like LSTMs capture temporal dynamics, providing a comprehensive understanding of evolving agent states for accurate predictions.
+**EquiPredict Module** : The final model leverages various neural network techniques to interpret and predict complex motion patterns based on relational data.It simplifies features like speed, direction, and position into a lower-dimensional space for efficient processing. Interactions are classified into categories using message passing and aggregation techniques, then processed through Feature Learning layers to update each node's representation based on its neighbors. Recurrent processing also allows the model to consider temporal evolution of interactions and states. Multiple prediction heads generate outputs for agent coordinates, and if DCT was applied, coordinates are transformed back from the frequency domain to the spatial domain using the inverse DCT.
+
 
 Below there's a graphical representation of network implemented in the original paper https://arxiv.org/pdf/2303.10876.
 
@@ -85,7 +84,16 @@ Below we report some of the results we have achieved:
 </div>
 
 - *AgentPreprocessing with Invalids Data Results on ETH* :   
-                MISSINNG
+<div style="display: flex; justify-content: center; align-items: center;">
+  <div style="text-align: center; margin-right: 20px;">
+    <img src="results/ours_invalid_eth_FDE_100.png" width="300" height="auto" alt="ours_eth_FDE_100">
+    <p><strong>ETH FDE 100 Epochs</strong></p>
+  </div>
+  <div style="text-align: center;">
+    <img src="results/ours_invalid_eth_ADE_100.png" width="300" height="auto" alt="ours_eth_ADE_100">
+    <p><strong>ETH ADE 100 Epochs</strong></p>
+  </div>
+</div>
 
 From the above plots, we can see that, despite the data loss, processing only valids results achieves a slightly better performance. For this reason, we decided to perform further tests only considering valid data.  
 **Following results assume AgentPreProcessing without Invalids is used** 
@@ -114,10 +122,9 @@ From the above plots, we can see that, despite the data loss, processing only va
   </div>
 </div>
 
-
 From the above plots, we observe that the Reasoning Part plays a crucial role in guaranteeing invariance and equivariance properties for our model. For this reason, we provide a re-implementation of it achieving these results 
 
-**Results for re-implemeted Feature Learning but added Recurrency, GCL layer and MHA in EquiPredict** 
+**Results for re-implemeted Feature Learning with additional K-Means to compute interaction categories and  recurrency, GCL layer and MHA in EquiPredict** 
 - *Results on ETH*:
 <div style="display: flex; justify-content: center; align-items: center;">
   <div style="text-align: center; margin-right: 20px;">
@@ -156,10 +163,16 @@ From the above plots, we observe that the Reasoning Part plays a crucial role in
 </div>
 
 
+## Comparison with SOTA 
+<p align="center">
+  <img src="results/sota.png" style="width: 250px; height: auto;">
+</p>
+
 
 ## Final Observations and Future Works
 
-As stated before, 
+As we can observe from the table above, we achieve reasonable results. We want to further enhance our architrecture, trying to improve the equivariance and invariance properties of our model. Moreover, we would like to integrate it with autonomous vehicles and robotics for improved motion planning and prediction.
+
 
 ## Acknowledgments
 * The original paper:
@@ -173,5 +186,31 @@ As stated before,
       archivePrefix={arXiv},
       primaryClass={cs.CV},
       url={https://arxiv.org/abs/2303.10876}, 
+}
+```
+
+* Other Related Works : 
+
+```bib
+@misc{yuan2021agentformeragentawaretransformerssociotemporal,
+      title={AgentFormer: Agent-Aware Transformers for Socio-Temporal Multi-Agent Forecasting}, 
+      author={Ye Yuan and Xinshuo Weng and Yanglan Ou and Kris Kitani},
+      year={2021},
+      eprint={2103.14023},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2103.14023}, 
+}
+```
+
+```bib
+@misc{yuan2021agentformeragentawaretransformerssociotemporal,
+      title={AgentFormer: Agent-Aware Transformers for Socio-Temporal Multi-Agent Forecasting}, 
+      author={Ye Yuan and Xinshuo Weng and Yanglan Ou and Kris Kitani},
+      year={2021},
+      eprint={2103.14023},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2103.14023}, 
 }
 ```
