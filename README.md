@@ -1,1 +1,1 @@
-# private_eqmotion
+# EquiPredict
