@@ -24,7 +24,7 @@ In our project, we propose several experiments to explore the importance of equi
 ## Dataset 
 We conduct experiments on pedestrian trajectory prediction using the ETH dataset, which contains 3 subsets : ETH, HOTEL, UNIV.  
 
-**BIWI Dataset** : Annotations file given in BIWI dataset can be found at https://icu.ee.ethz.ch/research/datsets.html
+**BIWI Dataset** : Annotations file given in BIWI dataset can be found at https://github.com/abduallahmohamed/Social-STGCNN
 
 <p align="center">
   <img src="results/dataset_sample.png" style="width: 250px; height: auto;">
@@ -225,13 +225,13 @@ As we can observe from the table above, we achieve reasonable results. We want t
 ```
 
 ```bib
-@misc{yuan2021agentformeragentawaretransformerssociotemporal,
-      title={AgentFormer: Agent-Aware Transformers for Socio-Temporal Multi-Agent Forecasting}, 
-      author={Ye Yuan and Xinshuo Weng and Yanglan Ou and Kris Kitani},
-      year={2021},
-      eprint={2103.14023},
+@misc{mohamed2020socialstgcnnsocialspatiotemporalgraph,
+      title={Social-STGCNN: A Social Spatio-Temporal Graph Convolutional Neural Network for Human Trajectory Prediction}, 
+      author={Abduallah Mohamed and Kun Qian and Mohamed Elhoseiny and Christian Claudel},
+      year={2020},
+      eprint={2002.11927},
       archivePrefix={arXiv},
-      primaryClass={cs.AI},
-      url={https://arxiv.org/abs/2103.14023}, 
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2002.11927}, 
 }
 ```
