@@ -6,8 +6,9 @@
 The ability to understand and predict the motion of multiple agents in dynamic environments is crucial for a range of applications, from autonomous vehicles navigating urban streets to sophisticated pedestrian traffic management systems. Despite considerable advancements, existing motion prediction methods often struggle to capture the intricate interdependencies and the variability these agents exhibit in real-world settings.  
 In our project, we propose several experiments to explore the importance of equivariance and invariance in our multiprediction task.  
 <p align="center">
-  <img src="results/pedestrian_eq.png" style="width: 50%; height: auto;">
+  <img src="results/pedestrian_eq.png" style="width: 250px; height: auto;">
 </p>
+
 
 
 ## Repository Content 
@@ -28,7 +29,7 @@ We conduct experiments on pedestrian trajectory prediction using the ETH dataset
 **BIWI Dataset** : Annotations file given in BIWI dataset can be found at https://icu.ee.ethz.ch/research/datsets.html
 
 <p align="center">
-  <img src="results/dataset_sample.png" style="width: 50%; height: auto;">
+  <img src="results/dataset_sample.png" style="width: 250px; height: auto;">
 </p>
 
 The image above is an example of annotation taken from biwi_eth_train.txt. Data is reported in the format **<Frame_Id, Pedestrian_Id, X_coordinate, Y_coordinate>** 
@@ -132,11 +133,11 @@ From the above plots, we observe that the Reasoning Part plays a crucial role in
 - *Results on UNIV*:
 <div style="display: flex; justify-content: center; align-items: center;">
   <div style="text-align: center; margin-right: 20px;">
-    <img src="results/ours_theirs_FDE_univ_150.png" width="300" height="auto" alt="Image 1">
+    <img src="results/ours_theirs_univ_FDE_150.png" width="300" height="auto" alt="Image 1">
     <p><strong>UNIV FDE 150 Epochs</strong></p>
   </div>
   <div style="text-align: center;">
-    <img src="results/ours_theirs_ADE_univ_150.png" width="300" height="auto" alt="Image 2">
+    <img src="results/ours_theirs_univ_ADE_150.png" width="300" height="auto" alt="Image 2">
     <p><strong>UNIV ADE 150 Epochs</strong></p>
   </div>
 </div>
@@ -145,12 +146,12 @@ From the above plots, we observe that the Reasoning Part plays a crucial role in
 - *Results on HOTEL*:
 <div style="display: flex; justify-content: center; align-items: center;">
   <div style="text-align: center; margin-right: 20px;">
-    <img src="results/ours_theirs_FDE_univ_150.png" width="300" height="auto" alt="Image 1">
-    <p><strong>ETH FDE 150 Epochs</strong></p>
+    <img src="results/ours_theirs_hotel_FDE_150.png" width="300" height="auto" alt="Image 1">
+    <p><strong>HOTEL FDE 150 Epochs</strong></p>
   </div>
   <div style="text-align: center;">
-    <img src="results/ours_theirs_ADE_univ_150.png" width="300" height="auto" alt="Image 2">
-    <p><strong>ETH ADE 150 Epochs</strong></p>
+    <img src="results/ours_theirs_hotel_ADE_150.png" width="300" height="auto" alt="Image 2">
+    <p><strong>HOTEL ADE 150 Epochs</strong></p>
   </div>
 </div>
 
