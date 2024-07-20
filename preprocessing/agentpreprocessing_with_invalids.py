@@ -1,3 +1,5 @@
+from utility_functions import *
+
 # trajectory dataset handling None data
 class AgentPreProcessing_with_Invalids(Dataset):
     def __init__(self, root_path, settings, subset, history_frames, future_frames):

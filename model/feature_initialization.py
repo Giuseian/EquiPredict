@@ -1,7 +1,4 @@
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-from torch.nn import init
+from utility_functions import * 
 
 class FeatureInitialization(nn.Module):
     """Class for initializing features of input data"""

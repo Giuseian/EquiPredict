@@ -1,7 +1,4 @@
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-from sklearn.cluster import KMeans
+from utility_functions import * 
 
 class InteractionGraph(nn.Module):
     """Class to model interaction graphs between agents using learned features"""

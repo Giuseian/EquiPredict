@@ -2,6 +2,8 @@
 aspects of the relationships between tokens. The results from each head are combined and projected back to the desired 
 output dimension. This approach helps the model capture diverse features and dependencies in the input data """
 
+from utility_functions import * 
+
 class MultiHeadAttention(nn.Module):
     def __init__(self, input_dim, hidden_dim, device, num_heads=4):
         super(MultiHeadAttention, self).__init__()

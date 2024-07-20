@@ -1,3 +1,4 @@
+from utility_functions import * 
 
 class EquiPredict(nn.Module):
     def __init__(self, node_features, edge_features, hidden_dim, input_dim, hidden_channel_dim, output_dim, device='cuda', act_fn=nn.SiLU(), layers=4, coords_weight=1.0, use_recurrent=False, normalize_diff=False, use_tanh=False, gnn_variant = 'GCN'):
