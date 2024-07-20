@@ -10,7 +10,7 @@ In our project, we propose several experiments to explore the importance of equi
 
 
 ## Repository Content 
-* **'dataset'** : script of the dataset used to process and manage trajectory data  
+* **'dataset'** : scripts of the dataset used to process and manage trajectory data  
 * **'preprocessing'** : scripts dedicated to data cleaning, transformation and preparation 
 * **'model'** : all sub-networks and models needed to achieve our task 
 * **'options.py'** : parser options for both train and test so to adjust parameters when needed 
@@ -30,16 +30,16 @@ We conduct experiments on pedestrian trajectory prediction using the ETH dataset
   <img src="results/dataset_sample.png" style="width: 250px; height: auto;">
 </p>
 
-The image above is an example of annotation taken from biwi_eth_train.txt. Data is reported in the format **<Frame_Id, Pedestrian_Id, X_coordinate, Y_coordinate>** 
+The image above is an example of annotation taken from biwi_eth_train.txt. Data is reported in the format **<Frame_Id, Pedestrian_Id, X_coordinate, Y_coordinate>**.
 
-Following the standard setting, we use 3.2 seconds (8 timestamps) to predict 4.8 seconds (12 timestamps)
+Following the standard setting, we use 3.2 seconds (8 timestamps) to predict 4.8 seconds (12 timestamps).
 
 Our preprocessing pipeline goes through several stages to ensure the integrity and quality of the data used for our models: 
 - The process begins with the loading, filtering and processing of trajectory data to generate motion vectors and masks for valid agents appearing in both past and future frames.
-- To handle 'None Data' due to missing information. We provide two approaches to handle "ivalid entries" :  
+- To handle 'None Data' due to missing information, We provide two approaches to handle "invalid entries" :  
     - In the first implementation, invalid entries are bypassed, focusing solely on valid agents, causing a reasonable data loss. 
     - To address this limitation, the second implementation replaces invalid entries with the most recent valid data 
-- The final datasets are constructed using the methods based on these preprocessing methods 
+- The final datasets are constructed based on these preprocessing methods 
 - *Discrete Cosine Transformation* (DCT) is applied to transform the data in the *frequency domain* 
 
 ## Proposed Method 
@@ -47,9 +47,9 @@ Our preprocessing pipeline goes through several stages to ensure the integrity a
 Our method is composed of the following three building blocks : 
 - **Feature Initialization Module** : All input features are initialized and transformed into a more suitable format for subsequent processing by other parts of the model.
 - **Interaction Graph Module** : It captures agent interactions by processing their feature vectors. It includes a refinement of individual node features after their interactions and an analysis of combined features of agent pairs to learn about their direct interactions. K-means clustering is then used to categorize these interactions into predefined groups based on feature similarity. 
-- **Feature Learning Module** : It is used to process agent features dynamically, to update their states based on agent interactions, and to selectively focus on relevant data through attention mechanisms. 
+- **Feature Learning Module** : It is used to process agent features dynamically, to update their states based on agent interactions, and to selectively focus on relevant data through a self attention mechanism. 
 
-**EquiPredict Module** : The final model leverages various neural network techniques to interpret and predict complex motion patterns based on relational data.It simplifies features like speed, direction, and position into a lower-dimensional space for efficient processing. Interactions are classified into categories using message passing and aggregation techniques, then processed through Feature Learning layers to update each node's representation based on its neighbors. Recurrent processing also allows the model to consider temporal evolution of interactions and states. Multiple prediction heads generate outputs for agent coordinates, and if DCT was applied, coordinates are transformed back from the frequency domain to the spatial domain using the inverse DCT.
+**EquiPredict Module** : The final model leverages various neural network techniques to interpret and predict complex motion patterns based on relational data. It simplifies features like speed, direction, and position into a lower-dimensional space for efficient processing. Interactions are classified into categories using message passing and aggregation techniques, then processed through Feature Learning layers to update each node's representation based on its neighbors. Recurrent processing also allows the model to consider temporal evolution of interactions and states. Prediction are then computed using multiple prediction heads. Each head processes the refined node features to produce outputs related to the coordinates of the agents. Then, having applied DCT before, coordinates are transformed back from the frequency domain to the spatial domain using the inverse DCT.
 
 
 Below there's a graphical representation of network implemented in the original paper https://arxiv.org/pdf/2303.10876.
