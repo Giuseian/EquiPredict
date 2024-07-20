@@ -1,4 +1,4 @@
-# EquiPredict: Robust Interaction Modeling for Multi-Agent Motion Forecasting
+# EquiPredict: Interaction Modeling for Multi-Agent Motion Forecasting
 
 
 ## Project Description 
@@ -72,30 +72,21 @@ Below we report some of the results we have achieved:
 
 - *AgentPreprocessing without Invalids Data Results on ETH* : 
 
-<div style="display: flex; justify-content: center; align-items: center;">
-  <div style="text-align: center; margin-right: 20px;">
-    <img src="results/ours_valid_eth_FDE_100.png" width="300" height="auto" alt="ours_eth_FDE_100">
-    <p><strong>ETH FDE 100 Epochs</strong></p>
-  </div>
-  <div style="text-align: center;">
-    <img src="results/ours_valid_eth_ADE_100.png" width="300" height="auto" alt="ours_eth_ADE_100">
-    <p><strong>ETH ADE 100 Epochs</strong></p>
-  </div>
-</div>
+<table>
+  <tr>
+    <td style="text-align: center;">
+      <img src="results/ours_valid_eth_FDE_100.png" width="300" height="auto" alt="ours_eth_FDE_100">
+      <p><strong>ETH FDE 100 Epochs</strong></p>
+    </td>
+    <td style="text-align: center;">
+      <img src="results/ours_valid_eth_ADE_100.png" width="300" height="auto" alt="ours_eth_ADE_100">
+      <p><strong>ETH ADE 100 Epochs</strong></p>
+    </td>
+  </tr>
+</table>
 
-- *AgentPreprocessing with Invalids Data Results on ETH* :   
-<div style="display: flex; justify-content: center; align-items: center;">
-  <div style="text-align: center; margin-right: 20px;">
-    <img src="results/ours_invalid_eth_FDE_100.png" width="300" height="auto" alt="ours_eth_FDE_100">
-    <p><strong>ETH FDE 100 Epochs</strong></p>
-  </div>
-  <div style="text-align: center;">
-    <img src="results/ours_invalid_eth_ADE_100.png" width="300" height="auto" alt="ours_eth_ADE_100">
-    <p><strong>ETH ADE 100 Epochs</strong></p>
-  </div>
-</div>
 
-** LET'S LOOK AT IT **
+- *AgentPreprocessing with Invalids Data Results on ETH* : 
 <table>
   <tr>
     <td style="text-align: center;">
@@ -114,68 +105,83 @@ From the above plots, we can see that, despite the data loss, processing only va
 **Following results assume AgentPreProcessing without Invalids is used** 
 
 - *Results on UNIV* :
-<div style="display: flex; justify-content: center; align-items: center;">
-  <div style="text-align: center; margin-right: 20px;">
-    <img src="results/ours_univ_FDE_100.png" width="300" height="auto" alt="ours_univ_FDE_100">
-    <p><strong>UNIV FDE 100 Epochs</strong></p>
-  </div>
-  <div style="text-align: center;">
-    <img src="results/ours_univ_ADE_100.png" width="300" height="auto" alt="Image 2">
-    <p><strong>UNIV ADE 100 Epochs</strong></p>
-  </div>
-</div>
+<table>
+  <tr>
+    <td style="text-align: center;">
+      <img src="results/ours_univ_FDE_100.png" width="300" height="auto" alt="ours_univ_FDE_100">
+      <p><strong>UNIV FDE 100 Epochs</strong></p>
+    </td>
+    <td style="text-align: center;">
+      <img src="results/ours_univ_ADE_100.png" width="300" height="auto" alt="ours_univ_ADE_100">
+      <p><strong>UNIV ADE 100 Epochs</strong></p>
+    </td>
+  </tr>
+</table>
+
 
 - *Results on HOTEL* : 
-<div style="display: flex; justify-content: center; align-items: center;">
-  <div style="text-align: center; margin-right: 20px;">
-    <img src="results/ours_hotel_FDE_100.png" width="300" height="auto" alt="Image 1">
-    <p><strong>HOTEL FDE 100 Epochs</strong></p>
-  </div>
-  <div style="text-align: center;">
-    <img src="results/ours_hotel_ADE_100.png" width="300" height="auto" alt="Image 2">
-    <p><strong>HOTEL ADE 100 Epochs</strong></p>
-  </div>
-</div>
+<table>
+  <tr>
+    <td style="text-align: center;">
+      <img src="results/ours_hotel_FDE_100.png" width="300" height="auto" alt="ours_hotel_FDE_100">
+      <p><strong>HOTEL FDE 100 Epochs</strong></p>
+    </td>
+    <td style="text-align: center;">
+      <img src="results/ours_hotel_ADE_100.png" width="300" height="auto" alt="ours_hotel_ADE_100">
+      <p><strong>HOTEL ADE 100 Epochs</strong></p>
+    </td>
+  </tr>
+</table>
+
 
 From the above plots, we observe that the Reasoning Part plays a crucial role in guaranteeing invariance and equivariance properties for our model. For this reason, we provide a re-implementation of it achieving these results 
 
 **Results for re-implemeted Feature Learning with additional K-Means to compute interaction categories and  recurrency, GCL layer and MHA in EquiPredict** 
 - *Results on ETH*:
-<div style="display: flex; justify-content: center; align-items: center;">
-  <div style="text-align: center; margin-right: 20px;">
-    <img src="results/ours_theirs_FDE_eth_150.png" width="300" height="auto" alt="Image 1">
-    <p><strong>ETH FDE 150 Epochs</strong></p>
-  </div>
-  <div style="text-align: center;">
-    <img src="results/ours_theirs_ADE_eth_150.png" width="300" height="auto" alt="Image 2">
-    <p><strong>ETH ADE 150 Epochs</strong></p>
-  </div>
-</div>
+<table>
+  <tr>
+    <td style="text-align: center;">
+      <img src="results/ours_theirs_FDE_eth_150.png" width="300" height="auto" alt="ours_theirs_FDE_eth_150">
+      <p><strong>ETH FDE 150 Epochs</strong></p>
+    </td>
+    <td style="text-align: center;">
+      <img src="results/ours_theirs_ADE_eth_150.png" width="300" height="auto" alt="ours_theirs_ADE_eth_150">
+      <p><strong>ETH ADE 150 Epochs</strong></p>
+    </td>
+  </tr>
+</table>
+
 
 - *Results on UNIV*:
-<div style="display: flex; justify-content: center; align-items: center;">
-  <div style="text-align: center; margin-right: 20px;">
-    <img src="results/ours_theirs_univ_FDE_150.png" width="300" height="auto" alt="Image 1">
-    <p><strong>UNIV FDE 150 Epochs</strong></p>
-  </div>
-  <div style="text-align: center;">
-    <img src="results/ours_theirs_univ_ADE_150.png" width="300" height="auto" alt="Image 2">
-    <p><strong>UNIV ADE 150 Epochs</strong></p>
-  </div>
-</div>
+<table>
+  <tr>
+    <td style="text-align: center;">
+      <img src="results/ours_theirs_univ_FDE_150.png" width="300" height="auto" alt="ours_theirs_univ_FDE_150">
+      <p><strong>UNIV FDE 150 Epochs</strong></p>
+    </td>
+    <td style="text-align: center;">
+      <img src="results/ours_theirs_univ_ADE_150.png" width="300" height="auto" alt="ours_theirs_univ_ADE_150">
+      <p><strong>UNIV ADE 150 Epochs</strong></p>
+    </td>
+  </tr>
+</table>
+
 
 
 - *Results on HOTEL*:
-<div style="display: flex; justify-content: center; align-items: center;">
-  <div style="text-align: center; margin-right: 20px;">
-    <img src="results/ours_theirs_hotel_FDE_150.png" width="300" height="auto" alt="Image 1">
-    <p><strong>HOTEL FDE 150 Epochs</strong></p>
-  </div>
-  <div style="text-align: center;">
-    <img src="results/ours_theirs_hotel_ADE_150.png" width="300" height="auto" alt="Image 2">
-    <p><strong>HOTEL ADE 150 Epochs</strong></p>
-  </div>
-</div>
+<table>
+  <tr>
+    <td style="text-align: center;">
+      <img src="results/ours_theirs_hotel_FDE_150.png" width="300" height="auto" alt="ours_theirs_hotel_FDE_150">
+      <p><strong>HOTEL FDE 150 Epochs</strong></p>
+    </td>
+    <td style="text-align: center;">
+      <img src="results/ours_theirs_hotel_ADE_150.png" width="300" height="auto" alt="ours_theirs_hotel_ADE_150">
+      <p><strong>HOTEL ADE 150 Epochs</strong></p>
+    </td>
+  </tr>
+</table>
+
 
 
 ## Comparison with SOTA 
